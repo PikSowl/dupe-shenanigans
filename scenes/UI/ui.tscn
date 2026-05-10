@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cval4tm67eigx"]
+
+[ext_resource type="PackedScene" uid="uid://1h3fu2wicc62" path="res://scenes/UI/base_clicker.tscn" id="1_suays"]
+[ext_resource type="Script" uid="uid://b2gutpyifmqyo" path="res://scripts/UI/ui.gd" id="1_yb1mt"]
+[ext_resource type="PackedScene" uid="uid://ssdjr0bhgla7" path="res://scenes/UI/base_generator.tscn" id="4_7e3k0"]
+
+[node name="UI" type="Control" unique_id=1344497331]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yb1mt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=524404717]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftPanel" type="Control" parent="HBoxContainer" unique_id=667204346]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel" unique_id=576993257]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 344.0
+offset_bottom = 1064.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Navigator" type="Control" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=346126743]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator" unique_id=209133722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer" unique_id=528242930]
+layout_mode = 2
+
+[node name="BaseClickerLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=1552663997]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Base Clicker"
+
+[node name="BaseGeneratorLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=2094716487]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Base Generator"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=1623340584]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 0
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/LeftPanel/VBoxContainer/MarginContainer" unique_id=1241023640]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Resources" type="Control" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=671715929]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources" unique_id=241704170]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer" unique_id=437155857]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer" unique_id=1627404941]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Energy: 32"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=727212147]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/MarginContainer" unique_id=1149438157]
+layout_mode = 2
+
+[node name="MainView" type="Control" parent="HBoxContainer" unique_id=1315552580]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BaseClicker" parent="HBoxContainer/MainView" unique_id=363047476 node_paths=PackedStringArray("ui") instance=ExtResource("1_suays")]
+layout_mode = 1
+ui = NodePath("../../..")
+
+[node name="BaseGenerator" parent="HBoxContainer/MainView" unique_id=1149506178 node_paths=PackedStringArray("ui") instance=ExtResource("4_7e3k0")]
+visible = false
+layout_mode = 1
+ui = NodePath("../../..")
+
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseClickerLink" to="." method="_on_base_clicker_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseGeneratorLink" to="." method="_on_base_generator_link_pressed"]

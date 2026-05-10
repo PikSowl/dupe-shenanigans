@@ -13,6 +13,7 @@ script = ExtResource("1_n7c3e")
 e_counter = NodePath("Label")
 button = NodePath("Button")
 timer = NodePath("Timer")
+view = 1
 
 [node name="Label" type="Label" parent="." unique_id=1709219058]
 custom_minimum_size = Vector2(0, 80)
