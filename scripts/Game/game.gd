@@ -6,7 +6,7 @@ extends Node
 static var ref : Game
 
 
-## Singleton check.
+## Singleton check
 func _singleton_check() -> void:
 	if not ref:
 		ref = self
@@ -14,11 +14,11 @@ func _singleton_check() -> void:
 	
 	queue_free()
 
-## Contains data to save and load.
+## Contains data to save and load
 var data : Data
 
 
-## Singleton check and data initalisation.
+## Singleton check and data initalisation
 func _enter_tree() -> void:
 	_singleton_check()
 	data = Data.new()

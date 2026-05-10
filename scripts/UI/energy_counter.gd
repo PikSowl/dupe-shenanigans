@@ -1,12 +1,14 @@
 class_name EnergyCounter
 extends Label
-## Displays the curent amount of stored energy .
+## Displays the curent amount of stored energy.
 
-## TEMP Function to update label
-func _process(_delta: float) -> void:
-	update_text()
+## Conecting signals
+func _ready() -> void:
+	update_text(0)
+	HandlerEnergy.ref.energy_created.connect(update_text)
+	HandlerEnergy.ref.energy_consumed.connect(update_text)
 
 
 ## Updates the text to show curent stored energy 
-func update_text() -> void:
+func update_text(_quantity : int = -1) -> void:
 	set_text("Energy : %s" % Game.ref.data.energy)
