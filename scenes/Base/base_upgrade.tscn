@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://blwihf3rlc7nh"]
+
+[ext_resource type="Script" uid="uid://bpsafw3h56e3p" path="res://scripts/Base/base_upgrade.gd" id="1_rax2o"]
+[ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/upgrade.tscn" id="2_0h6dq"]
+
+[node name="BaseUpgrade" type="Control" unique_id=493355709]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rax2o")
+view = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=468277456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=336744561]
+layout_mode = 2
+
+[node name="HeaderLarge" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1415060402]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Upgrades"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=604463281]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=795167888]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=429066252]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 0
+
+[node name="Upgrade" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=922588376 instance=ExtResource("2_0h6dq")]
+layout_mode = 2

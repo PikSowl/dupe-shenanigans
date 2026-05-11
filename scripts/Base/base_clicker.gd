@@ -19,7 +19,7 @@ func _on_button_pressed() -> void:
 
 
 func create_energy() -> void:
-	HandlerEnergy.ref.create_energy(1)
+	HandlerEnergy.ref.click_energy()
 
 
 func _on_navigation_request(requested_view : UI.Views) -> void:

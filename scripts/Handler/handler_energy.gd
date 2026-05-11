@@ -41,3 +41,10 @@ func consume_energy(quantity : int) -> Error:
 	energy_consumed.emit(quantity)
 	
 	return Error.OK
+
+## When click produce energy
+func click_energy() -> void:
+	var quantity_added: int = 1
+	quantity_added += Game.ref.data.up_c_1_amount
+	
+	create_energy(quantity_added)

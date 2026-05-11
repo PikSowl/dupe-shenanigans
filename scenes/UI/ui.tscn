@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cval4tm67eigx"]
 
-[ext_resource type="PackedScene" uid="uid://1h3fu2wicc62" path="res://scenes/UI/base_clicker.tscn" id="1_suays"]
+[ext_resource type="PackedScene" uid="uid://1h3fu2wicc62" path="res://scenes/Base/base_clicker.tscn" id="1_suays"]
 [ext_resource type="Script" uid="uid://b2gutpyifmqyo" path="res://scripts/UI/ui.gd" id="1_yb1mt"]
 [ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/UI/energy_counter.gd" id="2_f54a5"]
-[ext_resource type="PackedScene" uid="uid://ssdjr0bhgla7" path="res://scenes/UI/base_generator.tscn" id="4_7e3k0"]
+[ext_resource type="PackedScene" uid="uid://ssdjr0bhgla7" path="res://scenes/Base/base_generator.tscn" id="4_7e3k0"]
+[ext_resource type="PackedScene" uid="uid://blwihf3rlc7nh" path="res://scenes/Base/base_upgrade.tscn" id="5_7e3k0"]
 
 [node name="UI" type="Control" unique_id=1344497331]
 layout_mode = 3
@@ -58,15 +59,20 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer" unique_id=528242930]
 layout_mode = 2
 
-[node name="BaseClickerLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=1552663997]
+[node name="BaseClickerLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=2074251195]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Base Clicker"
 
-[node name="BaseGeneratorLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=2094716487]
+[node name="BaseGeneratorLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=16663049]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Base Generator"
+
+[node name="BaseUpgradeLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=1780751906]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Base Upgrade"
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=1623340584]
 layout_mode = 2
@@ -121,5 +127,11 @@ visible = false
 layout_mode = 1
 ui = NodePath("../../..")
 
+[node name="BaseUpgrade" parent="HBoxContainer/MainView" unique_id=493355709 node_paths=PackedStringArray("ui") instance=ExtResource("5_7e3k0")]
+visible = false
+layout_mode = 1
+ui = NodePath("../../..")
+
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseClickerLink" to="." method="_on_base_clicker_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseGeneratorLink" to="." method="_on_base_generator_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseUpgradeLink" to="." method="_on_base_upgrade_link_pressed"]

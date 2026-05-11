@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1h3fu2wicc62"]
 
-[ext_resource type="Script" uid="uid://duencpww1wa7" path="res://scripts/UI/base_clicker.gd" id="1_0v7ye"]
-[ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/UI/energy_counter.gd" id="2_vdma7"]
+[ext_resource type="Script" uid="uid://duencpww1wa7" path="res://scripts/Base/base_clicker.gd" id="1_stk3r"]
+[ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/UI/energy_counter.gd" id="2_2synv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vdma7"]
 font_size = 48
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0v7ye")
+script = ExtResource("1_stk3r")
 
 [node name="EnergyCounter" type="Label" parent="." unique_id=1527275954]
 custom_minimum_size = Vector2(0, 80)
@@ -26,7 +26,7 @@ text = "Energy: <value>"
 label_settings = SubResource("LabelSettings_vdma7")
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_vdma7")
+script = ExtResource("2_2synv")
 
 [node name="Button" type="Button" parent="." unique_id=1260027392]
 custom_minimum_size = Vector2(240, 240)

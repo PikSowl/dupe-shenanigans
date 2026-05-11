@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ssdjr0bhgla7"]
 
-[ext_resource type="Script" uid="uid://brne5hswu18xm" path="res://scripts/UI/base_generator.gd" id="1_n7c3e"]
-[ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/UI/energy_counter.gd" id="2_gw738"]
+[ext_resource type="Script" uid="uid://brne5hswu18xm" path="res://scripts/Base/base_generator.gd" id="1_14cht"]
+[ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/UI/energy_counter.gd" id="2_jj6cj"]
 
 [node name="BaseGenerator" type="Control" unique_id=1149506178 node_paths=PackedStringArray("button", "timer")]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n7c3e")
+script = ExtResource("1_14cht")
 button = NodePath("Button")
 timer = NodePath("Timer")
 view = 1
@@ -27,7 +27,7 @@ text = "Energy: <value>"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = ExtResource("2_gw738")
+script = ExtResource("2_jj6cj")
 
 [node name="Button" type="Button" parent="." unique_id=136724980]
 custom_minimum_size = Vector2(240, 240)
