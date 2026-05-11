@@ -1,17 +1,10 @@
 class_name BaseClicker
-extends Control
+extends View
 ## Basic clicker. Click on button == +1 energy.
 
-
-@export var ui : UI
-
-@export var view : UI.Views
-
-
 func _ready() -> void:
+	super()
 	visible = true
-		
-	ui.navigation_requested.connect(_on_navigation_request)
 
 
 func _on_button_pressed() -> void:
@@ -20,11 +13,3 @@ func _on_button_pressed() -> void:
 
 func create_energy() -> void:
 	HandlerEnergy.ref.click_energy()
-
-
-func _on_navigation_request(requested_view : UI.Views) -> void:
-	if requested_view == view:
-		visible = true
-		return
-	
-	visible = false

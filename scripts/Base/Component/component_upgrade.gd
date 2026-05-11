@@ -9,7 +9,7 @@ extends Control
 @export var buy_button : Button
 
 ## Upgrade to display
-var upgrade : UpClick1
+var upgrade : Upgrade
 
 
 func  _ready() -> void:

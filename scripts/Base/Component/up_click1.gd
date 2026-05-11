@@ -1,32 +1,19 @@
 class_name UpClick1
-extends Node
+extends Upgrade
 ## Upgrade for click number 1. Increase energy from clicks.
-
-##
-signal bought
-
-
-## How many already bought
-var amount : int = 0
-## Name of upgrade
-var title : String = "Click Upgrade"
-## What it does
-var description : String
-## How much for first one
-var base_cost : int = 10
-## How much for one
-var cost : int = 1
 
 
 func _init() -> void:
 	amount = Game.ref.data.up_c_1_amount
-	Calculate_cost()
-	description = getDescription()
+	title = "Clicker Upgrade"
+	base_cost = 5
+	calculate_cost()
+	description = get_description()
 	
 
 
 ## Returns upgrade description and cost
-func getDescription() -> String:
+func get_description() -> String:
 	var desc : String = "Increases the amount of energy created by Clicking."
 	desc += "\nEffects : +1 click"
 	desc += "\nCost : %s" %cost
@@ -35,7 +22,7 @@ func getDescription() -> String:
 
 
 ## Returns how much for one
-func Calculate_cost() -> void:
+func calculate_cost() -> void:
 	cost = base_cost + 2 * base_cost * int(amount**1.5)
 
 
@@ -50,8 +37,8 @@ func buy_one() -> void:
 		amount += 1
 		Game.ref.data.up_c_1_amount = amount
 		
-		Calculate_cost()
-		description = getDescription()
+		calculate_cost()
+		description = get_description()
 		
 		bought.emit()
 	

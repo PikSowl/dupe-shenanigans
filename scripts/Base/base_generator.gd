@@ -1,5 +1,5 @@
 class_name BaseGenerator
-extends Control
+extends View
 ## Basic generator. When on, adds 1 energy/second.
 
 ## Button to turn on generator
@@ -7,15 +7,9 @@ extends Control
 ## Timer between income
 @export var timer : Timer
 
-@export var ui : UI
-
-@export var view : UI.Views
-
-
 func _ready() -> void:
+	super()
 	visible = false
-	
-	ui.navigation_requested.connect(_on_navigation_request)
 
 
 func _on_timer_timeout() -> void:
@@ -34,11 +28,3 @@ func begin_generating_basic_energy() -> void:
 
 func create_energy() -> void:
 	HandlerEnergy.ref.create_energy(1)
-
-
-func _on_navigation_request(requested_view : UI.Views) -> void:
-	if requested_view == view:
-		visible = true
-		return
-	
-	visible = false
