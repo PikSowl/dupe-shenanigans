@@ -9,6 +9,8 @@ signal bought
 
 ## How many already bought
 var amount : int = -1
+## Is it forged
+var is_forged : bool = false
 ## Name of upgrade
 var title : String = "Click Upgrade"
 ## What it does
@@ -35,6 +37,6 @@ func calculate_cost() -> void:
 func is_afordable() -> bool:
 	return false
 
-
+## Virtual class, must be overwritten.[br]
 func buy_one() -> void:
 	printerr("buy_one() method not defined")

@@ -13,7 +13,8 @@ var upgrade : Upgrade
 
 
 func  _ready() -> void:
-	upgrade = UpClick1.new()
+	if not upgrade:
+		upgrade = UpClick1.new()
 	
 	update_label_title()
 	update_label_description()

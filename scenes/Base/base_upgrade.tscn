@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blwihf3rlc7nh"]
 
 [ext_resource type="Script" uid="uid://bpsafw3h56e3p" path="res://scripts/Base/base_upgrade.gd" id="1_rax2o"]
-[ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/upgrade.tscn" id="2_0h6dq"]
+[ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/component_upgrade.tscn" id="2_0h6dq"]
 
 [node name="BaseUpgrade" type="Control" unique_id=493355709]
 layout_mode = 3

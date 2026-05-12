@@ -9,7 +9,6 @@ func _init() -> void:
 	base_cost = 5
 	calculate_cost()
 	description = get_description()
-	
 
 
 ## Returns upgrade description and cost
@@ -32,6 +31,7 @@ func is_afordable() -> bool:
 	
 	return false
 
+
 func buy_one() -> void:
 	if not HandlerEnergy.ref.consume_energy(cost):
 		amount += 1
@@ -41,4 +41,3 @@ func buy_one() -> void:
 		description = get_description()
 		
 		bought.emit()
-	

@@ -3,19 +3,34 @@
 [ext_resource type="Script" uid="uid://bxb683ghevd6s" path="res://scripts/Game/game.gd" id="1_fc1p2"]
 [ext_resource type="Script" uid="uid://c3o3iw2801dty" path="res://scripts/Handler/handler_energy.gd" id="1_jm17p"]
 [ext_resource type="PackedScene" uid="uid://cval4tm67eigx" path="res://scenes/UI/ui.tscn" id="2_jm17p"]
+[ext_resource type="Script" uid="uid://du54jsyayfsg0" path="res://scripts/Handler/handler_st_r.gd" id="3_bfxw3"]
+[ext_resource type="Script" uid="uid://b6modcgfg3gqe" path="res://scripts/Handler/handler_st_forge.gd" id="4_7dfdq"]
+[ext_resource type="Script" uid="uid://k0r6j1pgqc5o" path="res://scripts/Handler/handler_coal_plant.gd" id="6_54y65"]
 
 [node name="Game" type="Node" unique_id=50545161]
 script = ExtResource("1_fc1p2")
+scene_ui = ExtResource("2_jm17p")
 
 [node name="Handlers" type="Node" parent="." unique_id=1831691109]
 
 [node name="Energy" type="Node" parent="Handlers" unique_id=685021715]
 script = ExtResource("1_jm17p")
 
+[node name="STR" type="Node" parent="Handlers" unique_id=450605872]
+script = ExtResource("3_bfxw3")
+
+[node name="STForge" type="Node" parent="Handlers" unique_id=160181705]
+script = ExtResource("4_7dfdq")
+
+[node name="CoalPlant" type="Node" parent="Handlers" unique_id=25980376 node_paths=PackedStringArray("timer")]
+script = ExtResource("6_54y65")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Handlers/CoalPlant" unique_id=654774087]
+
 [node name="SaveTimer" type="Timer" parent="." unique_id=834450181]
 wait_time = 3.0
 autostart = true
 
-[node name="UI" parent="." unique_id=1344497331 instance=ExtResource("2_jm17p")]
-
+[connection signal="timeout" from="Handlers/CoalPlant/Timer" to="Handlers/CoalPlant" method="_on_timer_timeout"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]

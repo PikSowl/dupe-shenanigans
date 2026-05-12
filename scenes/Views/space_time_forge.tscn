@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c0q5u8ncrd3dr"]
+
+[ext_resource type="Script" uid="uid://bdgr2fg1ljjaj" path="res://scripts/Views/space_time_forge.gd" id="1_r22eu"]
+[ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/component_upgrade.tscn" id="2_drj1b"]
+
+[node name="SpaceTimeRip" type="Control" unique_id=1738304145 node_paths=PackedStringArray("stf_area")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r22eu")
+stf_area = NodePath("MarginContainer/VBoxContainer/STForge")
+comp_upgrade_scene = ExtResource("2_drj1b")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1823389307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2136880938]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1311724106]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SpaceTimeRip Forge"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=27794428]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=217300342]
+layout_mode = 2
+
+[node name="STForge" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=887749026]
+layout_mode = 2

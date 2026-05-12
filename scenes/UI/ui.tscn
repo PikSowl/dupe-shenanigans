@@ -3,8 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://1h3fu2wicc62" path="res://scenes/Base/base_clicker.tscn" id="1_suays"]
 [ext_resource type="Script" uid="uid://b2gutpyifmqyo" path="res://scripts/UI/ui.gd" id="1_yb1mt"]
 [ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/UI/energy_counter.gd" id="2_f54a5"]
+[ext_resource type="Script" uid="uid://bm61rr3si2mq4" path="res://scripts/UI/str_counter.gd" id="3_35jxk"]
 [ext_resource type="PackedScene" uid="uid://ssdjr0bhgla7" path="res://scenes/Base/base_generator.tscn" id="4_7e3k0"]
 [ext_resource type="PackedScene" uid="uid://blwihf3rlc7nh" path="res://scenes/Base/base_upgrade.tscn" id="5_7e3k0"]
+[ext_resource type="PackedScene" uid="uid://c0q5u8ncrd3dr" path="res://scenes/Views/space_time_forge.tscn" id="6_m41qk"]
+[ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/component_upgrade.tscn" id="8_tpnoy"]
 
 [node name="UI" type="Control" unique_id=1344497331]
 layout_mode = 3
@@ -74,6 +77,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Base Upgrade"
 
+[node name="STFLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=73975773]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SpaceTime Forge"
+
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=1623340584]
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -106,6 +114,12 @@ theme_override_font_sizes/font_size = 36
 text = "Energy: 32"
 script = ExtResource("2_f54a5")
 
+[node name="STRCounter2" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer" unique_id=1646596384]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "STR: 4"
+script = ExtResource("3_35jxk")
+
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=727212147]
 layout_mode = 2
 theme_override_constants/margin_top = 16
@@ -132,6 +146,14 @@ visible = false
 layout_mode = 1
 ui = NodePath("../../..")
 
+[node name="SpaceTimeForge" parent="HBoxContainer/MainView" unique_id=1738304145 node_paths=PackedStringArray("ui") instance=ExtResource("6_m41qk")]
+visible = false
+layout_mode = 1
+comp_upgrade_scene = ExtResource("8_tpnoy")
+ui = NodePath("../../..")
+view = 3
+
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseClickerLink" to="." method="_on_base_clicker_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseGeneratorLink" to="." method="_on_base_generator_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseUpgradeLink" to="." method="_on_base_upgrade_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/STFLink" to="." method="_on_stf_link_pressed"]
