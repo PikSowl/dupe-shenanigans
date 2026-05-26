@@ -4,7 +4,7 @@ extends Upgrade
 
 
 func _init() -> void:
-	amount = Game.ref.data.up_c_1_amount
+	times_forged = Game.ref.data.up_c_1_amount
 	title = "Clicker Upgrade"
 	base_cost = 5
 	calculate_cost()
@@ -29,13 +29,13 @@ func is_afordable() -> bool:
 
 ## Returns how much for one
 func calculate_cost() -> void:
-	cost = base_cost + 2 * base_cost * int(amount**1.5)
+	cost = base_cost + 2 * base_cost * int(times_forged**1.5)
 
 ## Tries to buy one upgrade
 func buy_one() -> void:
 	if HandlerEnergy.ref.can_consume_energy(cost):
-		amount += 1
-		Game.ref.data.up_c_1_amount = amount
+		times_forged += 1
+		Game.ref.data.up_c_1_amount = times_forged
 		calculate_cost()
 		description = get_description()
 		bought.emit()

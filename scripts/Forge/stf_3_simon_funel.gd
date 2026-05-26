@@ -1,21 +1,21 @@
-class_name STF1CoalPlant
+class_name STF3SimomFunel
 extends Upgrade
-## Unlocks Coal Plant - passive energy generator.
+## Unlocks Simom mini-game.
 
 
 func _init() -> void:
-	is_forged = Game.ref.data.stf.stf_1_forged
+	is_forged = Game.ref.data.stf.stf_3_forged
 	times_forged = 0
-	title = "Coal Plant"
-	base_cost = 3
+	title = "Simon Funel"
+	base_cost = 1
 	calculate_cost()
 	description = get_description()
 
 
 ## Returns upgrade description and cost
 func get_description() -> String:
-	var desc : String = "Your first passive source of energy."
-	desc += "\nEffects: +1 energy/s"
+	var desc : String = "Simom would like that!."
+	desc += "\nEffects: Unlocks Simom mini-game"
 	desc += "\nCost in STR: %s" %cost
 	
 	return desc
@@ -40,7 +40,7 @@ func buy_one() -> void:
 	if not HandlerSTR.ref.consume_st_r(cost):
 		is_forged = true
 		times_forged+=1
-		Game.ref.data.stf.stf_1_forged = is_forged
+		Game.ref.data.stf.stf_3_forged = is_forged
 
 		bought.emit()
 		HandlerSTForge.ref.get_forged.emit()

@@ -1,21 +1,23 @@
-class_name STF1CoalPlant
+class_name STF2CoalMine
 extends Upgrade
-## Unlocks Coal Plant - passive energy generator.
+## Unlocks Coal Mine - improves Coal Plant.
+
+
+var max_times_forged : int = 5
 
 
 func _init() -> void:
-	is_forged = Game.ref.data.stf.stf_1_forged
-	times_forged = 0
-	title = "Coal Plant"
-	base_cost = 3
+	times_forged = Game.ref.data.stf.stf_2_times_forged
+	title = "Coal Mine"
+	base_cost = 5
 	calculate_cost()
 	description = get_description()
 
 
 ## Returns upgrade description and cost
 func get_description() -> String:
-	var desc : String = "Your first passive source of energy."
-	desc += "\nEffects: +1 energy/s"
+	var desc : String = "Improves coal based generation"
+	desc += "\nEffects: *2 energy/s from coal"
 	desc += "\nCost in STR: %s" %cost
 	
 	return desc
@@ -23,11 +25,11 @@ func get_description() -> String:
 
 ## Returns how much for this one
 func calculate_cost() -> void:
-	cost = base_cost
+	cost = base_cost + int(pow(base_cost, times_forged))
 
 
 func is_afordable() -> bool:
-	if is_forged:
+	if times_forged >= max_times_forged:
 		return false
 	
 	if HandlerSTR.ref.st_r() >= cost:
@@ -38,9 +40,9 @@ func is_afordable() -> bool:
 
 func buy_one() -> void:
 	if not HandlerSTR.ref.consume_st_r(cost):
-		is_forged = true
-		times_forged+=1
-		Game.ref.data.stf.stf_1_forged = is_forged
-
+		times_forged += 1
+		Game.ref.data.stf.stf_2_times_forged = times_forged
+		print("ba")
+		
 		bought.emit()
 		HandlerSTForge.ref.get_forged.emit()

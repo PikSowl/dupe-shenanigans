@@ -20,8 +20,8 @@ func  _ready() -> void:
 	update_label_description()
 	update_button()
 	
-	HandlerEnergy.ref.energy_created.connect(update_button)
-	HandlerEnergy.ref.energy_consumed.connect(update_button)
+	HandlerSTR.ref.st_r_created.connect(update_button)
+	HandlerSTR.ref.st_r_consumed.connect(update_button)
 	
 	upgrade.bought.connect(update_label_title)
 	upgrade.bought.connect(update_label_description)
@@ -29,7 +29,7 @@ func  _ready() -> void:
 
 
 func update_label_title() -> void:
-	var text : String = upgrade.title + " (%s)" %upgrade.amount
+	var text : String = upgrade.title + " (%s)" %upgrade.times_forged
 	label_title.text = text
 
 

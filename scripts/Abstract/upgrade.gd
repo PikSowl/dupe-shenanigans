@@ -11,6 +11,8 @@ signal bought
 var amount : int = -1
 ## Is it forged
 var is_forged : bool = false
+## How many times was it forged
+var times_forged : int = -1
 ## Name of upgrade
 var title : String = "Click Upgrade"
 ## What it does

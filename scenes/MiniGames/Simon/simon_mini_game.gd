@@ -12,6 +12,7 @@ var sequence: Array = []
 var player_input_index: int = 0
 
 var score: int = 0
+var hi_score : int = Game.ref.data.mini_games.simon_hi_score
 var index: int = 0
 
 @export var score_label: Label
@@ -69,6 +70,7 @@ func add_to_sequence() -> void:
 	await(get_tree().create_timer(0.5).timeout)
 	show_sequence()
 
+
 ##Shows correct generated button sequence
 func show_sequence() -> void:
 	current_state = State.SHOWING_SEQUENCE
@@ -119,7 +121,12 @@ func game_over() -> void:
 	disable_buttons()
 	message_label.text = "WRONG."
 	update_score_label()
-	HandlerSTR.ref.create_st_r(score)
+	
+	if hi_score < score:
+		HandlerSTR.ref.create_st_r(score - hi_score)
+		hi_score = score
+		Game.ref.data.mini_games.simon_hi_score = hi_score
+	
 	restart_button.disabled = false
 	restart_button.visible = true
 
@@ -129,19 +136,23 @@ func _on_texture_button_pressed() -> void:
 	restart_button.visible = false
 	start_new_game()
 
+
 func enable_buttons() -> void:
 	for button : SimonButton in buttons:
 		button.disabled = false
 
+
 func disable_buttons() -> void:
 	for button : SimonButton in buttons:
 		button.disabled = true
+
 
 func _get_button_by_color(color_name: String) -> SimonButton:
 	for button : SimonButton in buttons:
 		if button.color_name == color_name:
 			return button
 	return null
+
 
 func update_score_label() -> void:
 	score_label.text = "Score: %d" % score

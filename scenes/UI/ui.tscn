@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://1h3fu2wicc62" path="res://scenes/Base/BClicker/base_clicker.tscn" id="1_suays"]
 [ext_resource type="Script" uid="uid://b2gutpyifmqyo" path="res://scenes/UI/ui.gd" id="1_yb1mt"]
 [ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/Counters/energy_counter.gd" id="2_f54a5"]
+[ext_resource type="Script" uid="uid://bk46mqlqoa5sy" path="res://scenes/UI/simon_link.gd" id="2_vb61p"]
 [ext_resource type="Script" uid="uid://bm61rr3si2mq4" path="res://scripts/Counters/str_counter.gd" id="3_35jxk"]
 [ext_resource type="PackedScene" uid="uid://ssdjr0bhgla7" path="res://scenes/Base/BGenerator/base_generator.tscn" id="4_7e3k0"]
 [ext_resource type="PackedScene" uid="uid://blwihf3rlc7nh" path="res://scenes/Base/BUpgrade/base_upgrade.tscn" id="5_7e3k0"]
@@ -93,7 +94,9 @@ text = "SpaceTime Forge"
 [node name="SimonLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=979960616]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
+disabled = true
 text = "Simon Mini-game"
+script = ExtResource("2_vb61p")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=1623340584]
 layout_mode = 2
@@ -146,7 +149,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BaseClicker" parent="HBoxContainer/MainView" unique_id=363047476 node_paths=PackedStringArray("ui") instance=ExtResource("1_suays")]
-visible = false
 layout_mode = 1
 ui = NodePath("../../..")
 
@@ -167,6 +169,7 @@ ui = NodePath("../../..")
 view = 3
 
 [node name="SimonMiniGame" parent="HBoxContainer/MainView" unique_id=966162764 node_paths=PackedStringArray("ui") instance=ExtResource("8_tpnoy")]
+visible = false
 layout_mode = 1
 ui = NodePath("../../..")
 
