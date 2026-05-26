@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://1h3fu2wicc62"]
 
-[ext_resource type="Script" uid="uid://duencpww1wa7" path="res://scripts/Base/base_clicker.gd" id="1_stk3r"]
-[ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/UI/energy_counter.gd" id="2_2synv"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vdma7"]
-font_size = 48
+[ext_resource type="Script" uid="uid://duencpww1wa7" path="res://scenes/Base/BClicker/base_clicker.gd" id="1_stk3r"]
+[ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/Counters/energy_counter.gd" id="2_2synv"]
+[ext_resource type="LabelSettings" uid="uid://ck54py6kema38" path="res://assets/base_label_settings.tres" id="2_bn38k"]
 
 [node name="BaseClicker" type="Control" unique_id=363047476]
 layout_mode = 3
@@ -23,7 +21,7 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "Energy: <value>"
-label_settings = SubResource("LabelSettings_vdma7")
+label_settings = ExtResource("2_bn38k")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_2synv")

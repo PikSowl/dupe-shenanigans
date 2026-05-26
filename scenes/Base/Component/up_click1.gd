@@ -20,11 +20,6 @@ func get_description() -> String:
 	return desc
 
 
-## Returns how much for one
-func calculate_cost() -> void:
-	cost = base_cost + 2 * base_cost * int(amount**1.5)
-
-
 func is_afordable() -> bool:
 	if HandlerEnergy.ref.energy() >= cost:
 		return true
@@ -32,12 +27,15 @@ func is_afordable() -> bool:
 	return false
 
 
+## Returns how much for one
+func calculate_cost() -> void:
+	cost = base_cost + 2 * base_cost * int(amount**1.5)
+
+## Tries to buy one upgrade
 func buy_one() -> void:
-	if not HandlerEnergy.ref.consume_energy(cost):
+	if HandlerEnergy.ref.can_consume_energy(cost):
 		amount += 1
 		Game.ref.data.up_c_1_amount = amount
-		
 		calculate_cost()
 		description = get_description()
-		
 		bought.emit()

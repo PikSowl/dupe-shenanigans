@@ -4,7 +4,7 @@ extends Resource
 
 @export var energy : int = 0
 
-@export var st_r : int = 40
+@export var st_r : int = 0
 
 @export var up_c_1_amount : int = 0
 

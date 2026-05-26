@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blwihf3rlc7nh"]
 
-[ext_resource type="Script" uid="uid://bpsafw3h56e3p" path="res://scripts/Base/base_upgrade.gd" id="1_rax2o"]
-[ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/component_upgrade.tscn" id="2_0h6dq"]
+[ext_resource type="Script" uid="uid://bpsafw3h56e3p" path="res://scenes/Base/BUpgrade/base_upgrade.gd" id="1_g11ky"]
+[ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/component_upgrade.tscn" id="2_gaa40"]
 
 [node name="BaseUpgrade" type="Control" unique_id=493355709]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rax2o")
+script = ExtResource("1_g11ky")
 view = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=468277456]
@@ -50,5 +50,5 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 0
 
-[node name="Upgrade" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=922588376 instance=ExtResource("2_0h6dq")]
+[node name="Upgrade" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=922588376 instance=ExtResource("2_gaa40")]
 layout_mode = 2

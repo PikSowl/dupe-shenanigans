@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0q5u8ncrd3dr"]
 
-[ext_resource type="Script" uid="uid://bdgr2fg1ljjaj" path="res://scripts/Views/space_time_forge.gd" id="1_r22eu"]
+[ext_resource type="Script" uid="uid://bdgr2fg1ljjaj" path="res://scenes/Views/space_time_forge.gd" id="1_r22eu"]
 [ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/component_upgrade.tscn" id="2_drj1b"]
 
 [node name="SpaceTimeRip" type="Control" unique_id=1738304145 node_paths=PackedStringArray("stf_area")]

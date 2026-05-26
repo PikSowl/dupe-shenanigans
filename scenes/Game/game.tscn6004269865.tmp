@@ -1,14 +1,53 @@
 [gd_scene format=3 uid="uid://cf18sa7x0i7eb"]
 
-[ext_resource type="Script" uid="uid://bxb683ghevd6s" path="res://scenes/Game/game.gd" id="1_54y65"]
 [ext_resource type="Script" uid="uid://c3o3iw2801dty" path="res://scripts/Handler/handler_energy.gd" id="1_jm17p"]
 [ext_resource type="PackedScene" uid="uid://cval4tm67eigx" path="res://scenes/UI/ui.tscn" id="2_jm17p"]
 [ext_resource type="Script" uid="uid://du54jsyayfsg0" path="res://scripts/Handler/handler_st_r.gd" id="3_bfxw3"]
 [ext_resource type="Script" uid="uid://b6modcgfg3gqe" path="res://scripts/Handler/handler_st_forge.gd" id="4_7dfdq"]
 [ext_resource type="Script" uid="uid://k0r6j1pgqc5o" path="res://scripts/Handler/handler_coal_plant.gd" id="6_54y65"]
 
+[sub_resource type="GDScript" id="GDScript_7dfdq"]
+script/source = "class_name Game
+extends Node
+## Main node of the game.
+
+## Singleton reference.
+static var ref : Game
+
+
+## Singleton check
+func _singleton_check() -> void:
+	if not ref:
+		ref = self
+		return
+	
+	queue_free()
+
+
+
+@export var scene_ui : PackedScene 
+
+## Contains data to save and load
+var data : Data
+
+
+## Singleton check and data initalisation
+func _enter_tree() -> void:
+	_singleton_check()
+	data = Data.new()
+	SaveSystem.load_data()
+
+
+func _ready() -> void:
+	var node_ui : UI = scene_ui.instantiate() as UI
+	add_child(node_ui)
+
+func _on_save_timer_timeout() -> void:
+	SaveSystem.save_data()
+"
+
 [node name="Game" type="Node" unique_id=50545161]
-script = ExtResource("1_54y65")
+script = SubResource("GDScript_7dfdq")
 scene_ui = ExtResource("2_jm17p")
 
 [node name="Handlers" type="Node" parent="." unique_id=1831691109]
@@ -31,6 +70,8 @@ timer = NodePath("Timer")
 [node name="SaveTimer" type="Timer" parent="." unique_id=834450181]
 wait_time = 3.0
 autostart = true
+
+[node name="UI" parent="." unique_id=1344497331 instance=ExtResource("2_jm17p")]
 
 [connection signal="timeout" from="Handlers/CoalPlant/Timer" to="Handlers/CoalPlant" method="_on_timer_timeout"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]

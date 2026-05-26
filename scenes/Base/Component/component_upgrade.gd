@@ -34,7 +34,7 @@ func update_label_title() -> void:
 
 
 func update_label_description() -> void:
-	var text : String = upgrade.description + " (%s)" %upgrade.amount
+	var text : String = upgrade.description
 	label_description.text = text
 
 

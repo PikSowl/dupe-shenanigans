@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2kl1iwarfs1s"]
 
-[ext_resource type="Script" uid="uid://bwsmqsct08la6" path="res://scripts/Base/Component/component_upgrade.gd" id="1_4ridw"]
+[ext_resource type="Script" uid="uid://bwsmqsct08la6" path="res://scenes/Base/Component/component_upgrade.gd" id="1_4ridw"]
 
 [node name="ComponentUpgrade" type="Control" unique_id=922588376 node_paths=PackedStringArray("label_title", "label_description", "buy_button")]
 custom_minimum_size = Vector2(0, 240)

@@ -15,12 +15,10 @@ func _singleton_check() -> void:
 	queue_free()
 
 
-
 @export var scene_ui : PackedScene 
 
 ## Contains data to save and load
 var data : Data
-
 
 ## Singleton check and data initalisation
 func _enter_tree() -> void:
@@ -32,6 +30,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	var node_ui : UI = scene_ui.instantiate() as UI
 	add_child(node_ui)
+
 
 func _on_save_timer_timeout() -> void:
 	SaveSystem.save_data()

@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://b7nwbewyubt5v"]
+
+[ext_resource type="Script" uid="uid://tst8bvfesjp3" path="res://scenes/MiniGames/Simon/simon_mini_game.gd" id="1_yep7c"]
+[ext_resource type="LabelSettings" uid="uid://ck54py6kema38" path="res://assets/base_label_settings.tres" id="2_vy1sj"]
+[ext_resource type="Texture2D" uid="uid://ciwk567o57ksk" path="res://assets/Simon/Buttons/ButtonOffGreen.png" id="3_um74y"]
+[ext_resource type="Texture2D" uid="uid://bp7py2aiyelnb" path="res://assets/Simon/Buttons/ButtonGreen.png" id="4_kg5bk"]
+[ext_resource type="Texture2D" uid="uid://lxjthly6mnoh" path="res://assets/Simon/Buttons/ButtonOffYellow.png" id="5_eaihe"]
+[ext_resource type="Script" uid="uid://bhsym5ycubv2x" path="res://scenes/MiniGames/Simon/simon_button.gd" id="5_vy1sj"]
+[ext_resource type="Texture2D" uid="uid://d4cv4nnjww2b8" path="res://assets/Simon/Buttons/ButtonYellow.png" id="6_so5su"]
+[ext_resource type="Texture2D" uid="uid://1ho51pv1g366" path="res://assets/Simon/Buttons/ButtonOffBlue.png" id="7_6r46r"]
+[ext_resource type="Texture2D" uid="uid://byvcks0bmw0yy" path="res://assets/Simon/Buttons/ButtonBlue.png" id="8_ry5u5"]
+[ext_resource type="Texture2D" uid="uid://cxbch5s4eg7r0" path="res://assets/Simon/Buttons/ButtonOffRed.png" id="9_cg3ko"]
+[ext_resource type="Texture2D" uid="uid://cjdv02va1ub4g" path="res://assets/Simon/Buttons/ButtonRed.png" id="10_apj8v"]
+[ext_resource type="Texture2D" uid="uid://ckmalc36a22ir" path="res://assets/Simon/Buttons/ButtonRestart.png" id="12_um74y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0fjp"]
+font_size = 64
+
+[node name="SimonMiniGame" type="Control" unique_id=966162764 node_paths=PackedStringArray("score_label", "message_label", "sequence_timer", "restart_button", "green_button", "yellow_button", "blue_button", "red_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yep7c")
+score_label = NodePath("Score")
+message_label = NodePath("Message")
+sequence_timer = NodePath("SequenceTimer")
+restart_button = NodePath("Restart")
+green_button = NodePath("BGforButons/MarginContainer/GreenButton")
+yellow_button = NodePath("BGforButons/MarginContainer/YellowButton")
+blue_button = NodePath("BGforButons/MarginContainer/BlueButton")
+red_button = NodePath("BGforButons/MarginContainer/RedButton")
+view = 4
+
+[node name="Background" type="ColorRect" parent="." unique_id=423024175]
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.760999, 0.76099914, 0.76099914, 1)
+
+[node name="Label" type="Label" parent="." unique_id=393956171]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Simon"
+label_settings = ExtResource("2_vy1sj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="." unique_id=308148735]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.075
+anchor_right = 1.0
+anchor_bottom = 0.075
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_q0fjp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="." unique_id=1447842073]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.15
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "Message"
+label_settings = ExtResource("2_vy1sj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BGforButons" type="ColorRect" parent="." unique_id=1641808229]
+custom_minimum_size = Vector2(390, 390)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -195.0
+offset_right = 195.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.7853982
+pivot_offset = Vector2(195, 195)
+color = Color(0.9007046, 0.90070456, 0.90070456, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="BGforButons" unique_id=1509945354]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GreenButton" type="TextureButton" parent="BGforButons/MarginContainer" unique_id=625638885]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("3_um74y")
+texture_pressed = ExtResource("4_kg5bk")
+texture_focused = ExtResource("3_um74y")
+stretch_mode = 0
+script = ExtResource("5_vy1sj")
+color_name = "Green"
+
+[node name="YellowButton" type="TextureButton" parent="BGforButons/MarginContainer" unique_id=1706349650]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("5_eaihe")
+texture_pressed = ExtResource("6_so5su")
+texture_focused = ExtResource("5_eaihe")
+stretch_mode = 0
+script = ExtResource("5_vy1sj")
+color_name = "Yellow"
+
+[node name="BlueButton" type="TextureButton" parent="BGforButons/MarginContainer" unique_id=795046914]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("7_6r46r")
+texture_pressed = ExtResource("8_ry5u5")
+texture_focused = ExtResource("7_6r46r")
+stretch_mode = 0
+script = ExtResource("5_vy1sj")
+color_name = "Blue"
+
+[node name="RedButton" type="TextureButton" parent="BGforButons/MarginContainer" unique_id=1202118221]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("9_cg3ko")
+texture_pressed = ExtResource("10_apj8v")
+texture_focused = ExtResource("9_cg3ko")
+stretch_mode = 0
+script = ExtResource("5_vy1sj")
+color_name = "Red"
+
+[node name="SequenceTimer" type="Timer" parent="." unique_id=964296030]
+
+[node name="Restart" type="TextureButton" parent="." unique_id=1908060306]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_left = -140.0
+offset_top = -120.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("12_um74y")
+
+[connection signal="pressed" from="Restart" to="." method="_on_texture_button_pressed"]

@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cval4tm67eigx"]
 
-[ext_resource type="PackedScene" uid="uid://1h3fu2wicc62" path="res://scenes/Base/base_clicker.tscn" id="1_suays"]
-[ext_resource type="Script" uid="uid://b2gutpyifmqyo" path="res://scripts/UI/ui.gd" id="1_yb1mt"]
-[ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/UI/energy_counter.gd" id="2_f54a5"]
-[ext_resource type="Script" uid="uid://bm61rr3si2mq4" path="res://scripts/UI/str_counter.gd" id="3_35jxk"]
-[ext_resource type="PackedScene" uid="uid://ssdjr0bhgla7" path="res://scenes/Base/base_generator.tscn" id="4_7e3k0"]
-[ext_resource type="PackedScene" uid="uid://blwihf3rlc7nh" path="res://scenes/Base/base_upgrade.tscn" id="5_7e3k0"]
+[ext_resource type="PackedScene" uid="uid://1h3fu2wicc62" path="res://scenes/Base/BClicker/base_clicker.tscn" id="1_suays"]
+[ext_resource type="Script" uid="uid://b2gutpyifmqyo" path="res://scenes/UI/ui.gd" id="1_yb1mt"]
+[ext_resource type="Script" uid="uid://c31jnb2ke2p17" path="res://scripts/Counters/energy_counter.gd" id="2_f54a5"]
+[ext_resource type="Script" uid="uid://bm61rr3si2mq4" path="res://scripts/Counters/str_counter.gd" id="3_35jxk"]
+[ext_resource type="PackedScene" uid="uid://ssdjr0bhgla7" path="res://scenes/Base/BGenerator/base_generator.tscn" id="4_7e3k0"]
+[ext_resource type="PackedScene" uid="uid://blwihf3rlc7nh" path="res://scenes/Base/BUpgrade/base_upgrade.tscn" id="5_7e3k0"]
 [ext_resource type="PackedScene" uid="uid://c0q5u8ncrd3dr" path="res://scenes/Views/space_time_forge.tscn" id="6_m41qk"]
-[ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/component_upgrade.tscn" id="8_tpnoy"]
+[ext_resource type="PackedScene" uid="uid://b7nwbewyubt5v" path="res://scenes/MiniGames/Simon/simon_mini_game.tscn" id="8_tpnoy"]
 
 [node name="UI" type="Control" unique_id=1344497331]
 layout_mode = 3
@@ -17,6 +17,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yb1mt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1123048771]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.44910043, 0.6376027, 0.65724134, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=524404717]
 layout_mode = 1
@@ -56,7 +65,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer" unique_id=528242930]
@@ -81,6 +89,11 @@ text = "Base Upgrade"
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "SpaceTime Forge"
+
+[node name="SimonLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=979960616]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Simon Mini-game"
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=1623340584]
 layout_mode = 2
@@ -133,6 +146,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BaseClicker" parent="HBoxContainer/MainView" unique_id=363047476 node_paths=PackedStringArray("ui") instance=ExtResource("1_suays")]
+visible = false
 layout_mode = 1
 ui = NodePath("../../..")
 
@@ -149,11 +163,15 @@ ui = NodePath("../../..")
 [node name="SpaceTimeForge" parent="HBoxContainer/MainView" unique_id=1738304145 node_paths=PackedStringArray("ui") instance=ExtResource("6_m41qk")]
 visible = false
 layout_mode = 1
-comp_upgrade_scene = ExtResource("8_tpnoy")
 ui = NodePath("../../..")
 view = 3
+
+[node name="SimonMiniGame" parent="HBoxContainer/MainView" unique_id=966162764 node_paths=PackedStringArray("ui") instance=ExtResource("8_tpnoy")]
+layout_mode = 1
+ui = NodePath("../../..")
 
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseClickerLink" to="." method="_on_base_clicker_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseGeneratorLink" to="." method="_on_base_generator_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseUpgradeLink" to="." method="_on_base_upgrade_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/STFLink" to="." method="_on_stf_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/SimonLink" to="." method="_on_simon_link_pressed"]

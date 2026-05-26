@@ -7,7 +7,8 @@ enum Views {
 	BASE_CLICKER,
 	BASE_GENERATOR,
 	BASE_UPGRADE,
-	SPACETIME_FORGE
+	SPACETIME_FORGE,
+	SIMON_MINI_GAME
 }
 
 signal navigation_requested(view : Views)
@@ -27,3 +28,7 @@ func _on_base_upgrade_link_pressed() -> void:
 
 func _on_stf_link_pressed() -> void:
 	navigation_requested.emit(Views.SPACETIME_FORGE)
+
+
+func _on_simon_link_pressed() -> void:
+	navigation_requested.emit(Views.SIMON_MINI_GAME)
