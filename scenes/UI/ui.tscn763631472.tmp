@@ -188,4 +188,4 @@ ui = NodePath("../../..")
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseUpgradeLink" to="." method="_on_base_upgrade_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/STFLink" to="." method="_on_stf_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/SimonLink" to="." method="_on_simon_link_pressed"]
-[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/FuncQuizLink" to="." method="_on_func_quiz_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/FuncQuizLink" to="." method="_on_simon_link_pressed"]

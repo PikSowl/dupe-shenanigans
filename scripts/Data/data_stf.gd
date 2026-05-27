@@ -7,3 +7,5 @@ extends Resource
 @export var stf_2_times_forged : int = 0
 
 @export var stf_3_forged : bool = false
+
+@export var stf_4_forged : bool = false

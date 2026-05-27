@@ -4,10 +4,11 @@ extends Resource
 
 @export var energy : int = 0
 
-@export var st_r : int = 1
+@export var st_r : int = 10
 
 @export var up_c_1_amount : int = 0
 
 ## All STForge items
 @export var stf : DataSTF = DataSTF.new()
 @export var mini_games : DataMiniGames = DataMiniGames.new()
+@export var functions : DataFunc = DataFunc.new()

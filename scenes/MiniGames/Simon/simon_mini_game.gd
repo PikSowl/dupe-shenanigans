@@ -17,9 +17,7 @@ var index: int = 0
 
 @export var score_label: Label
 @export var message_label : Label
-
 @export var sequence_timer: Timer
-
 @export var restart_button : TextureButton
 
 ## Buttons for mini-game

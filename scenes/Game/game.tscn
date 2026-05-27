@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cval4tm67eigx" path="res://scenes/UI/ui.tscn" id="2_jm17p"]
 [ext_resource type="Script" uid="uid://du54jsyayfsg0" path="res://scripts/Handler/handler_st_r.gd" id="3_bfxw3"]
 [ext_resource type="Script" uid="uid://b6modcgfg3gqe" path="res://scripts/Handler/handler_st_forge.gd" id="4_7dfdq"]
-[ext_resource type="Script" uid="uid://b56ess6n3tpqk" path="res://scripts/Handler/Forged/handler_simon_funel.gd" id="6_54y65"]
+[ext_resource type="Script" uid="uid://b56ess6n3tpqk" path="res://scripts/Handler/Forged/handler_mini_funel.gd" id="6_54y65"]
 [ext_resource type="Script" uid="uid://k0r6j1pgqc5o" path="res://scripts/Handler/Forged/handler_coal_plant.gd" id="6_t5wam"]
 
 [node name="Game" type="Node" unique_id=50545161]
@@ -29,7 +29,7 @@ timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Handlers/CoalPlant" unique_id=654774087]
 
-[node name="SimonFunel" type="Node" parent="Handlers" unique_id=1014999218]
+[node name="MiniFunel" type="Node" parent="Handlers" unique_id=1014999218]
 script = ExtResource("6_54y65")
 
 [node name="SaveTimer" type="Timer" parent="." unique_id=834450181]

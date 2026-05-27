@@ -1,0 +1,46 @@
+class_name STF4FuncQuizFunel
+extends Upgrade
+## Unlocks Func Quiz mini-game.
+
+
+func _init() -> void:
+	is_forged = Game.ref.data.stf.stf_4_forged
+	times_forged = int(Game.ref.data.stf.stf_4_forged)
+	title = "Func Quiz Funel"
+	base_cost = 9
+	calculate_cost()
+	description = get_description()
+
+
+## Returns upgrade description and cost
+func get_description() -> String:
+	var desc : String = "Have you learned your functions?."
+	desc += "\nEffects: Unlocks Func Quiz mini-game"
+	desc += "\nCost in STR: %s" %cost
+	
+	return desc
+
+
+## Returns how much for this one
+func calculate_cost() -> void:
+	cost = base_cost
+
+
+func is_afordable() -> bool:
+	if is_forged:
+		return false
+	
+	if HandlerSTR.ref.st_r() >= cost:
+		return true
+	
+	return false
+
+
+func buy_one() -> void:
+	if not HandlerSTR.ref.consume_st_r(cost):
+		is_forged = true
+		times_forged+=1
+		Game.ref.data.stf.stf_4_forged = is_forged
+
+		bought.emit()
+		HandlerSTForge.ref.get_forged.emit()

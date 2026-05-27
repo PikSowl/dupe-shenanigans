@@ -8,7 +8,8 @@ enum Views {
 	BASE_GENERATOR,
 	BASE_UPGRADE,
 	SPACETIME_FORGE,
-	SIMON_MINI_GAME
+	SIMON_MINI_GAME,
+	FUNC_QUIZ_MINI_GAME,
 }
 
 signal navigation_requested(view : Views)
@@ -32,3 +33,7 @@ func _on_stf_link_pressed() -> void:
 
 func _on_simon_link_pressed() -> void:
 	navigation_requested.emit(Views.SIMON_MINI_GAME)
+
+
+func _on_func_quiz_link_pressed() -> void:
+	navigation_requested.emit(Views.FUNC_QUIZ_MINI_GAME)
