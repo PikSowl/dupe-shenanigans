@@ -8,10 +8,10 @@ extends View
 @export var restart_button: TextureButton
 
 @onready var buttons: Array[Button] = [
-	$VBoxContainer/HBoxContainer/Button1,
-	$VBoxContainer/HBoxContainer/Button2,
-	$VBoxContainer/HBoxContainer/Button3,
-	$VBoxContainer/HBoxContainer/Button4
+	$Margin/VBoxContainer/HBoxContainer/Button1,
+	$Margin/VBoxContainer/HBoxContainer/Button2,
+	$Margin/VBoxContainer/HBoxContainer/Button3,
+	$Margin/VBoxContainer/HBoxContainer/Button4
 ]
 
 var functions: Dictionary = Game.ref.data.functions.functions
@@ -77,7 +77,6 @@ func _on_button_pressed(btn: Button) -> void:
 		question_label.text = "WRONG! Right function was " + current_function_name
 		game_over = true
 		restart_button.visible = true
-		restart_button.disabled = false
 		
 		if hi_score < score:
 			HandlerSTR.ref.create_st_r(score - hi_score)
@@ -85,13 +84,10 @@ func _on_button_pressed(btn: Button) -> void:
 			Game.ref.data.mini_games.simon_hi_score = hi_score
 	
 	score_label.text = "Score: %d" % score
-	
-	
 
 
 func _on_restart_pressed() -> void:
 	score = 0
 	score_label.text = "Score: %d" %score
-	restart_button.disabled = true
 	restart_button.visible = false
 	start_new_round()

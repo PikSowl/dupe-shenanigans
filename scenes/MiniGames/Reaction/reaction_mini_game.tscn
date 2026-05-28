@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dstg2pby1cttp"]
+
+[ext_resource type="Script" uid="uid://dsn0rqjxgramy" path="res://scenes/MiniGames/Reaction/reaction_mini_game.gd" id="1_reir7"]
+[ext_resource type="LabelSettings" uid="uid://ck54py6kema38" path="res://assets/base_label_settings.tres" id="2_du7lp"]
+[ext_resource type="Texture2D" uid="uid://ckmalc36a22ir" path="res://assets/Simon/Buttons/ButtonRestart.png" id="3_soy68"]
+
+[node name="ReactionMiniGame" type="Control" unique_id=1674003581 node_paths=PackedStringArray("button_grid", "score_label", "timer_label", "game_timer", "restart_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_reir7")
+button_grid = NodePath("MarginContainer/VBoxContainer/CenterContainer/ButtonGrid")
+score_label = NodePath("MarginContainer/VBoxContainer/Score")
+timer_label = NodePath("MarginContainer/VBoxContainer/Time")
+game_timer = NodePath("Timer")
+restart_button = NodePath("MarginContainer/VBoxContainer/Restart")
+
+[node name="Background" type="ColorRect" parent="." unique_id=608839744]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6775668, 0.6775668, 0.6775668, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1467124188]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2126915667]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2041754934]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Score: 0"
+label_settings = ExtResource("2_du7lp")
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1179361341]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Time: 0:00"
+label_settings = ExtResource("2_du7lp")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=1753449076]
+custom_minimum_size = Vector2(750, 750)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ButtonGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=68510037]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="Restart" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=709866806]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("3_soy68")
+
+[node name="Timer" type="Timer" parent="." unique_id=980359533]
+one_shot = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,21 +1,21 @@
-class_name STF4FuncQuizFunel
+class_name STF5ReactionFunnel
 extends Upgrade
-## Unlocks Func Quiz mini-game.
+## Unlocks Reaction mini-game.
 
 
 func _init() -> void:
-	is_forged = Game.ref.data.stf.stf_4_forged
-	times_forged = int(Game.ref.data.stf.stf_4_forged)
-	title = "Func Quiz Funel"
-	base_cost = 9
+	is_forged = Game.ref.data.stf.stf_5_forged
+	times_forged = int(Game.ref.data.stf.stf_5_forged)
+	title = "Reaction Funnel"
+	base_cost = 12
 	calculate_cost()
 	description = get_description()
 
 
 ## Returns upgrade description and cost
 func get_description() -> String:
-	var desc : String = "Have you learned your functions?."
-	desc += "\nEffects: Unlocks Func Quiz mini-game"
+	var desc : String = "Are you paying attention?."
+	desc += "\nEffects: Unlocks Reaction mini-game"
 	desc += "\nCost in STR: %s" %cost
 	
 	return desc
@@ -40,7 +40,7 @@ func buy_one() -> void:
 	if not HandlerSTR.ref.consume_st_r(cost):
 		is_forged = true
 		times_forged+=1
-		Game.ref.data.stf.stf_4_forged = is_forged
+		Game.ref.data.stf.stf_5_forged = is_forged
 
 		bought.emit()
 		HandlerSTForge.ref.get_forged.emit()

@@ -20,14 +20,16 @@ signal get_forged(upgrade : Upgrade)
 
 @onready var stf_1_coal_plant : STF1CoalPlant = STF1CoalPlant.new()
 @onready var stf_2_coal_mine : STF2CoalMine = STF2CoalMine.new()
-@onready var stf_3_simon_funel : STF3SimomFunel = STF3SimomFunel.new()
-@onready var stf_4_func_quiz_funel : STF4FuncQuizFunel = STF4FuncQuizFunel.new()
+@onready var stf_3_simon_funnel : STF3SimomFunnel = STF3SimomFunnel.new()
+@onready var stf_4_func_quiz_funnel : STF4FuncQuizFunnel = STF4FuncQuizFunnel.new()
+@onready var stf_5_reaction_funnel : STF5ReactionFunnel = STF5ReactionFunnel.new()
 
 ## Returns all STForge items
 func get_all_forge_items() -> Array[Upgrade]:
 	return [
 		stf_1_coal_plant,
 		stf_2_coal_mine,
-		stf_3_simon_funel,
-		stf_4_func_quiz_funel,
+		stf_3_simon_funnel,
+		stf_4_func_quiz_funnel,
+		stf_5_reaction_funnel
 	]

@@ -43,7 +43,6 @@ func _ready() -> void:
 	current_state = State.GAME_OVER
 	disable_buttons()
 	message_label.text = "Ready?"
-	restart_button.disabled = false
 
 
 func _connect_button_signals() -> void:
@@ -125,12 +124,10 @@ func game_over() -> void:
 		hi_score = score
 		Game.ref.data.mini_games.simon_hi_score = hi_score
 	
-	restart_button.disabled = false
 	restart_button.visible = true
 
 
 func _on_texture_button_pressed() -> void:
-	restart_button.disabled = true
 	restart_button.visible = false
 	start_new_game()
 

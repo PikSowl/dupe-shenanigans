@@ -7,10 +7,12 @@
 [ext_resource type="Script" uid="uid://bm61rr3si2mq4" path="res://scripts/Counters/str_counter.gd" id="3_35jxk"]
 [ext_resource type="Script" uid="uid://bdvux1a6ln0cr" path="res://scenes/UI/func_quiz_link.gd" id="3_c5elv"]
 [ext_resource type="PackedScene" uid="uid://ssdjr0bhgla7" path="res://scenes/Base/BGenerator/base_generator.tscn" id="4_7e3k0"]
+[ext_resource type="Script" uid="uid://bw88yf8if55xo" path="res://scenes/UI/reaction_link.gd" id="4_cketn"]
 [ext_resource type="PackedScene" uid="uid://blwihf3rlc7nh" path="res://scenes/Base/BUpgrade/base_upgrade.tscn" id="5_7e3k0"]
 [ext_resource type="PackedScene" uid="uid://c0q5u8ncrd3dr" path="res://scenes/Views/space_time_forge.tscn" id="6_m41qk"]
 [ext_resource type="PackedScene" uid="uid://b7nwbewyubt5v" path="res://scenes/MiniGames/Simon/simon_mini_game.tscn" id="8_tpnoy"]
 [ext_resource type="PackedScene" uid="uid://b8kdrui2tea6w" path="res://scenes/MiniGames/FuncQuiz/func_quiz_mini_game.tscn" id="10_owlbh"]
+[ext_resource type="PackedScene" uid="uid://dstg2pby1cttp" path="res://scenes/MiniGames/Reaction/reaction_mini_game.tscn" id="13_64obo"]
 
 [node name="UI" type="Control" unique_id=1344497331]
 layout_mode = 3
@@ -103,6 +105,13 @@ disabled = true
 text = "Func Quiz Mini-game"
 script = ExtResource("3_c5elv")
 
+[node name="ReactionLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=109341936]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+disabled = true
+text = "Reaction Mini Game"
+script = ExtResource("4_cketn")
+
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=1623340584]
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -154,7 +163,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BaseClicker" parent="HBoxContainer/MainView" unique_id=363047476 node_paths=PackedStringArray("ui") instance=ExtResource("1_suays")]
-visible = false
 layout_mode = 1
 ui = NodePath("../../..")
 
@@ -172,7 +180,6 @@ ui = NodePath("../../..")
 visible = false
 layout_mode = 1
 ui = NodePath("../../..")
-view = 3
 
 [node name="SimonMiniGame" parent="HBoxContainer/MainView" unique_id=966162764 node_paths=PackedStringArray("ui") instance=ExtResource("8_tpnoy")]
 visible = false
@@ -180,8 +187,14 @@ layout_mode = 1
 ui = NodePath("../../..")
 
 [node name="FuncQuizMiniGame" parent="HBoxContainer/MainView" unique_id=1141901097 node_paths=PackedStringArray("ui") instance=ExtResource("10_owlbh")]
+visible = false
 layout_mode = 1
 ui = NodePath("../../..")
+
+[node name="ReactionMiniGame" parent="HBoxContainer/MainView" unique_id=1674003581 node_paths=PackedStringArray("ui") instance=ExtResource("13_64obo")]
+layout_mode = 1
+ui = NodePath("../../..")
+view = 6
 
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseClickerLink" to="." method="_on_base_clicker_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/BaseGeneratorLink" to="." method="_on_base_generator_link_pressed"]
@@ -189,3 +202,4 @@ ui = NodePath("../../..")
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/STFLink" to="." method="_on_stf_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/SimonLink" to="." method="_on_simon_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/FuncQuizLink" to="." method="_on_func_quiz_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/ReactionLink" to="." method="_on_reaction_link_pressed"]

@@ -1,4 +1,4 @@
-class_name STF3SimomFunel
+class_name STF3SimomFunnel
 extends Upgrade
 ## Unlocks Simom mini-game.
 
@@ -6,7 +6,7 @@ extends Upgrade
 func _init() -> void:
 	is_forged = Game.ref.data.stf.stf_3_forged
 	times_forged = 0
-	title = "Simon Funel"
+	title = "Simon Funnel"
 	base_cost = 1
 	calculate_cost()
 	description = get_description()
