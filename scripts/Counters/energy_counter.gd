@@ -11,4 +11,4 @@ func _ready() -> void:
 
 ## Updates the text to show curent stored energy 
 func update_text(_quantity : int = -1) -> void:
-	set_text("Energy : %s" % Game.ref.data.energy)
+	set_text("Энергия : %s" % Game.ref.data.energy)

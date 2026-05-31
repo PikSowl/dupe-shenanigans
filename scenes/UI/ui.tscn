@@ -41,15 +41,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LeftPanel" type="Control" parent="HBoxContainer" unique_id=667204346]
-custom_minimum_size = Vector2(360, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel" unique_id=576993257]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 344.0
-offset_bottom = 1064.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -74,9 +73,10 @@ layout_mode = 2
 [node name="BaseClickerLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=2074251195]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Base Clicker"
+text = "Кликер"
 
 [node name="BaseGeneratorLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=16663049]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Base Generator"
@@ -84,32 +84,32 @@ text = "Base Generator"
 [node name="BaseUpgradeLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=1780751906]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Base Upgrade"
+text = "Обмен Энергии"
 
 [node name="STFLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=73975773]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "SpaceTime Forge"
+text = "Зон-Временная Кузня"
 
 [node name="SimonLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=979960616]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 disabled = true
-text = "Simon Mini-game"
+text = "Саймон: Мини-игра"
 script = ExtResource("2_vb61p")
 
 [node name="FuncQuizLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=417622458]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 disabled = true
-text = "Func Quiz Mini-game"
+text = "Функ Вик: Мини-игра"
 script = ExtResource("3_c5elv")
 
 [node name="ReactionLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer" unique_id=109341936]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 disabled = true
-text = "Reaction Mini Game"
+text = "Реакция: Мини-игра"
 script = ExtResource("4_cketn")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer" unique_id=1623340584]
@@ -134,6 +134,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer" unique_id=437155857]
 layout_mode = 2
@@ -141,13 +145,13 @@ layout_mode = 2
 [node name="EnergyCounter" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer" unique_id=1627404941]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Energy: 32"
+text = "Энергия: 32"
 script = ExtResource("2_f54a5")
 
-[node name="STRCounter2" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer" unique_id=1646596384]
+[node name="STRCounter" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer" unique_id=1646596384]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "STR: 4"
+text = "ЗВД: 11"
 script = ExtResource("3_35jxk")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=727212147]
@@ -163,6 +167,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BaseClicker" parent="HBoxContainer/MainView" unique_id=363047476 node_paths=PackedStringArray("ui") instance=ExtResource("1_suays")]
+visible = false
 layout_mode = 1
 ui = NodePath("../../..")
 
@@ -192,6 +197,7 @@ layout_mode = 1
 ui = NodePath("../../..")
 
 [node name="ReactionMiniGame" parent="HBoxContainer/MainView" unique_id=1674003581 node_paths=PackedStringArray("ui") instance=ExtResource("13_64obo")]
+visible = false
 layout_mode = 1
 ui = NodePath("../../..")
 view = 6

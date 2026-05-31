@@ -4,7 +4,7 @@
 [ext_resource type="LabelSettings" uid="uid://ck54py6kema38" path="res://assets/base_label_settings.tres" id="2_du7lp"]
 [ext_resource type="Texture2D" uid="uid://ckmalc36a22ir" path="res://assets/Simon/Buttons/ButtonRestart.png" id="3_soy68"]
 
-[node name="ReactionMiniGame" type="Control" unique_id=1674003581 node_paths=PackedStringArray("button_grid", "score_label", "timer_label", "game_timer", "restart_button")]
+[node name="ReactionMiniGame" type="Control" unique_id=1674003581 node_paths=PackedStringArray("button_grid", "score_label", "hi_score_label", "timer_label", "game_timer", "restart_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_reir7")
 button_grid = NodePath("MarginContainer/VBoxContainer/CenterContainer/ButtonGrid")
 score_label = NodePath("MarginContainer/VBoxContainer/Score")
+hi_score_label = NodePath("Hi-score_margin/Hi-score")
 timer_label = NodePath("MarginContainer/VBoxContainer/Time")
 game_timer = NodePath("Timer")
 restart_button = NodePath("MarginContainer/VBoxContainer/Restart")
@@ -25,15 +26,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6775668, 0.6775668, 0.6775668, 1)
+color = Color(0.74446255, 0.5039321, 0.46722668, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1467124188]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -9.0
-offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
@@ -47,13 +46,13 @@ layout_mode = 2
 [node name="Score" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2041754934]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Score: 0"
+text = "Счет: 0"
 label_settings = ExtResource("2_du7lp")
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1179361341]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Time: 0:00"
+text = "Время: 0:00"
 label_settings = ExtResource("2_du7lp")
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=1753449076]
@@ -77,6 +76,24 @@ texture_normal = ExtResource("3_soy68")
 
 [node name="Timer" type="Timer" parent="." unique_id=980359533]
 one_shot = true
+
+[node name="Hi-score_margin" type="MarginContainer" parent="." unique_id=2067387568]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -405.0
+offset_bottom = 99.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Hi-score" type="Label" parent="Hi-score_margin" unique_id=7954110]
+layout_mode = 2
+text = "Лучший счет: 0"
+label_settings = ExtResource("2_du7lp")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -6,7 +6,7 @@ extends Upgrade
 func _init() -> void:
 	is_forged = Game.ref.data.stf.stf_1_forged
 	times_forged = 0
-	title = "Coal Plant"
+	title = "Угольный генератор"
 	base_cost = 3
 	calculate_cost()
 	description = get_description()
@@ -14,9 +14,9 @@ func _init() -> void:
 
 ## Returns upgrade description and cost
 func get_description() -> String:
-	var desc : String = "Your first passive source of energy."
-	desc += "\nEffects: +1 energy/s"
-	desc += "\nCost in STR: %s" %cost
+	var desc : String = "Твой первый источник пасивной энергии."
+	desc += "\nЭффект: +1 энергия/с"
+	desc += "\nСтоимость в ЗВД: %s" %cost
 	
 	return desc
 

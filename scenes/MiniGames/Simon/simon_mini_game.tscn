@@ -16,7 +16,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_q0fjp"]
 font_size = 64
 
-[node name="SimonMiniGame" type="Control" unique_id=966162764 node_paths=PackedStringArray("score_label", "message_label", "sequence_timer", "restart_button", "green_button", "yellow_button", "blue_button", "red_button")]
+[node name="SimonMiniGame" type="Control" unique_id=966162764 node_paths=PackedStringArray("score_label", "hi_score_label", "message_label", "sequence_timer", "restart_button", "green_button", "yellow_button", "blue_button", "red_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,8 +24,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yep7c")
-score_label = NodePath("Score")
-message_label = NodePath("Message")
+score_label = NodePath("MarginContainer/VBoxContainer/Score")
+hi_score_label = NodePath("Hi-score_margin/Hi-score")
+message_label = NodePath("MarginContainer/VBoxContainer/Message")
 sequence_timer = NodePath("SequenceTimer")
 restart_button = NodePath("Restart")
 green_button = NodePath("BGforButons/MarginContainer/GreenButton")
@@ -42,44 +43,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.760999, 0.76099914, 0.76099914, 1)
+color = Color(0.5047804, 0.3104564, 0.5250585, 1)
 
-[node name="Label" type="Label" parent="." unique_id=393956171]
-custom_minimum_size = Vector2(0, 80)
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1231237090]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_bottom = 288.0
 grow_horizontal = 2
-text = "Simon"
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=590033383]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=393956171]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Саймон"
 label_settings = ExtResource("2_vy1sj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score" type="Label" parent="." unique_id=308148735]
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer" unique_id=308148735]
 custom_minimum_size = Vector2(0, 80)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.075
-anchor_right = 1.0
-anchor_bottom = 0.075
-offset_bottom = 67.0
-grow_horizontal = 2
-text = "0"
+layout_mode = 2
+text = "Счет: 0"
 label_settings = SubResource("LabelSettings_q0fjp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Message" type="Label" parent="." unique_id=1447842073]
+[node name="Message" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1447842073]
 custom_minimum_size = Vector2(0, 80)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.15
-anchor_right = 1.0
-anchor_bottom = 0.15
-offset_bottom = 67.0
-grow_horizontal = 2
-text = "Message"
+layout_mode = 2
+text = "Жми Рестарт"
 label_settings = ExtResource("2_vy1sj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -93,9 +92,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -195.0
-offset_top = -195.0
+offset_top = -175.0
 offset_right = 195.0
-offset_bottom = 195.0
+offset_bottom = 215.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.7853982
@@ -177,5 +176,23 @@ offset_right = 140.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("12_um74y")
+
+[node name="Hi-score_margin" type="MarginContainer" parent="." unique_id=1721865629]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -405.0
+offset_bottom = 99.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Hi-score" type="Label" parent="Hi-score_margin" unique_id=726211513]
+layout_mode = 2
+text = "Лучший счет: 0"
+label_settings = ExtResource("2_vy1sj")
 
 [connection signal="pressed" from="Restart" to="." method="_on_texture_button_pressed"]

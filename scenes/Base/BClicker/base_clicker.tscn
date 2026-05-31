@@ -13,6 +13,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_stk3r")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=469073789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34959358, 0.555902, 0.55984265, 1)
+
 [node name="EnergyCounter" type="Label" parent="." unique_id=1527275954]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 1
@@ -20,7 +29,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Energy: <value>"
+text = "Энергия: <число>"
 label_settings = ExtResource("2_bn38k")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -41,7 +50,7 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Manual Mode Generaton"
+text = "Ручная генерация"
 autowrap_mode = 3
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

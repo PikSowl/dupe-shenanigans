@@ -11,4 +11,4 @@ func _ready() -> void:
 
 ## Updates the text to show curent stored STR 
 func update_text(_quantity : int = -1) -> void:
-	set_text("STR : %s" % Game.ref.data.st_r)
+	set_text("ЗВД : %s" % Game.ref.data.st_r)

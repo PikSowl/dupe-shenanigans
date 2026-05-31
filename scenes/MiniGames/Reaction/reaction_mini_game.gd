@@ -4,6 +4,7 @@ extends View
 
 @export var button_grid: GridContainer
 @export var score_label: Label
+@export var hi_score_label: Label
 @export var timer_label: Label
 @export var game_timer: Timer
 @export var restart_button: TextureButton
@@ -36,7 +37,7 @@ const LARGE_GRID: int = 16
 func _ready() -> void:
 	super()
 	visible = false
-	timer_label.text = "Press RESTART!"
+	timer_label.text = "Нажми Рестарт!"
 
 
 func start_game() -> void:
@@ -96,11 +97,11 @@ func _process(_delta: float) -> void:
 
 func update_timer_label() -> void:
 	var remaining: float = game_timer.time_left
-	timer_label.text = "Time: %.2f" % remaining
+	timer_label.text = "Время: %.2f" % remaining
 
 
 func update_score_label() -> void:
-	score_label.text = "Score: %d" % score
+	score_label.text = "Счет: %d" % score
 
 
 func _on_button_pressed(number: int) -> void:
@@ -150,12 +151,13 @@ func game_over() -> void:
 		return
 	game_active = false
 	game_timer.stop()
-	timer_label.text = "Times up!"
+	timer_label.text = "Время вышло!"
 	restart_button.visible = true
 	
 	if hi_score < score:
 		HandlerSTR.ref.create_st_r(score - hi_score)
 		hi_score = score
+		hi_score_label.text = "Лучший счет: %s" % hi_score
 		Game.ref.data.mini_games.reaction_hi_score = hi_score
 	
 	for button: Button in button_grid.get_children():

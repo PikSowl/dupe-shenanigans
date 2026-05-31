@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdgr2fg1ljjaj" path="res://scenes/Views/space_time_forge.gd" id="1_r22eu"]
 [ext_resource type="PackedScene" uid="uid://d2kl1iwarfs1s" path="res://scenes/Base/Component/component_upgrade.tscn" id="2_drj1b"]
+[ext_resource type="LabelSettings" uid="uid://ck54py6kema38" path="res://assets/base_label_settings.tres" id="3_yyid4"]
 
 [node name="SpaceTimeRip" type="Control" unique_id=1738304145 node_paths=PackedStringArray("stf_area")]
 layout_mode = 3
@@ -14,6 +15,15 @@ script = ExtResource("1_r22eu")
 stf_area = NodePath("MarginContainer/VBoxContainer/ScrollContainer/STForge")
 comp_upgrade_scene = ExtResource("2_drj1b")
 view = 3
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1549400936]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47134125, 0.4791785, 0.93305725, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1823389307]
 layout_mode = 1
@@ -34,7 +44,13 @@ theme_override_constants/separation = 8
 [node name="Header" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1311724106]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "SpaceTimeRip Forge"
+text = "Зон-Временная кузня"
+label_settings = ExtResource("3_yyid4")
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1344162520]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Улучшай производство и открывай мини игры за ЗВД (Зон-Временные дыры)"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=27794428]
 layout_mode = 2

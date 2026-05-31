@@ -20,12 +20,16 @@ func  _ready() -> void:
 	update_label_description()
 	update_button()
 	
+	HandlerEnergy.ref.energy_created.connect(update_button)
+	HandlerEnergy.ref.energy_consumed.connect(update_button)
 	HandlerSTR.ref.st_r_created.connect(update_button)
 	HandlerSTR.ref.st_r_consumed.connect(update_button)
+	
 	
 	upgrade.bought.connect(update_label_title)
 	upgrade.bought.connect(update_label_description)
 	upgrade.bought.connect(update_button)
+
 
 
 func update_label_title() -> void:
@@ -39,13 +43,13 @@ func update_label_description() -> void:
 
 
 ## Updates button availability
-func update_button(_quantity : int = -1) -> void:
+func update_button() -> void:
 	if upgrade.is_afordable():
 		buy_button.disabled = false
 		return
 	
 	buy_button.disabled = true
 
-
+## Вызывается по нажатию кнопки Купить
 func _on_purchase_pressed() -> void:
 	upgrade.buy_one()

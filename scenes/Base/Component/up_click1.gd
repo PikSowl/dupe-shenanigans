@@ -5,17 +5,18 @@ extends Upgrade
 
 func _init() -> void:
 	times_forged = Game.ref.data.up_c_1_amount
-	title = "Clicker Upgrade"
+	title = "Улучшение Кликера"
 	base_cost = 5
 	calculate_cost()
 	description = get_description()
+	bought.emit()
 
 
 ## Returns upgrade description and cost
 func get_description() -> String:
-	var desc : String = "Increases the amount of energy created by Clicking."
-	desc += "\nEffects : +1 click"
-	desc += "\nCost : %s" %cost
+	var desc : String = "Увеличивает Энергию с нажатия."
+	desc += "\nЭффект : +1 Энергия/клик"
+	desc += "\nСтоимость в Энергии: %s" %cost
 	
 	return desc
 
@@ -27,15 +28,17 @@ func is_afordable() -> bool:
 	return false
 
 
-## Returns how much for one
+## Возращает стоимость одного улучшения
 func calculate_cost() -> void:
 	cost = base_cost + 2 * base_cost * int(times_forged**1.5)
+	description = get_description()
 
-## Tries to buy one upgrade
+
+## Пробует купить одно улучшение
 func buy_one() -> void:
-	if HandlerEnergy.ref.can_consume_energy(cost):
+	if not HandlerEnergy.ref.consume_energy(cost):
 		times_forged += 1
 		Game.ref.data.up_c_1_amount = times_forged
 		calculate_cost()
-		description = get_description()
+		
 		bought.emit()

@@ -2,7 +2,7 @@ class_name Data
 extends Resource
 ## Contain data to save and load
 
-@export var energy : int = 0
+@export var energy : int = 20
 
 @export var st_r : int = 20
 

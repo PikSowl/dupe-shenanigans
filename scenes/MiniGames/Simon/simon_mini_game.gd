@@ -16,6 +16,7 @@ var hi_score : int = Game.ref.data.mini_games.simon_hi_score
 var index: int = 0
 
 @export var score_label: Label
+@export var hi_score_label: Label
 @export var message_label : Label
 @export var sequence_timer: Timer
 @export var restart_button : TextureButton
@@ -42,7 +43,7 @@ func _ready() -> void:
 	_connect_button_signals()
 	current_state = State.GAME_OVER
 	disable_buttons()
-	message_label.text = "Ready?"
+	message_label.text = "Готов?"
 
 
 func _connect_button_signals() -> void:
@@ -71,7 +72,7 @@ func add_to_sequence() -> void:
 ##Shows correct generated button sequence
 func show_sequence() -> void:
 	current_state = State.SHOWING_SEQUENCE
-	message_label.text = "Remember..."
+	message_label.text = "Запоминай..."
 	disable_buttons()
 	index = 0
 	while index < sequence.size():
@@ -81,13 +82,12 @@ func show_sequence() -> void:
 		curent_button.unhighlight()
 		await get_tree().create_timer(0.2).timeout # пауза между кнопками
 		index += 1
-	await get_tree().create_timer(0.5).timeout
 	start_player_turn()
 
 func start_player_turn() -> void:
 	current_state = State.PLAYER_TURN
 	player_input_index = 0
-	message_label.text = "Repeat!"
+	message_label.text = "Повтори!"
 	enable_buttons()
 
 
@@ -104,7 +104,7 @@ func _on_button_pressed(color_name : String) -> void:
 		if player_input_index >= sequence.size():
 			score += 1
 			update_score_label()
-			message_label.text = "Right!"
+			message_label.text = "Правильно!"
 			disable_buttons()
 			await get_tree().create_timer(1.0).timeout
 			add_to_sequence()
@@ -116,12 +116,13 @@ func _on_button_pressed(color_name : String) -> void:
 func game_over() -> void:
 	current_state = State.GAME_OVER
 	disable_buttons()
-	message_label.text = "WRONG."
+	message_label.text = "Неправильно."
 	update_score_label()
 	
 	if hi_score < score:
 		HandlerSTR.ref.create_st_r(score - hi_score)
 		hi_score = score
+		hi_score_label.text = "Лучший счет: %s" % hi_score
 		Game.ref.data.mini_games.simon_hi_score = hi_score
 	
 	restart_button.visible = true
@@ -150,4 +151,4 @@ func _get_button_by_color(color_name: String) -> SimonButton:
 
 
 func update_score_label() -> void:
-	score_label.text = "Score: %d" % score
+	score_label.text = "Счет: %d" % score

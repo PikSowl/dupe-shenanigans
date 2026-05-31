@@ -6,7 +6,7 @@ extends Upgrade
 func _init() -> void:
 	is_forged = Game.ref.data.stf.stf_5_forged
 	times_forged = int(Game.ref.data.stf.stf_5_forged)
-	title = "Reaction Funnel"
+	title = "Воронка Реакция"
 	base_cost = 12
 	calculate_cost()
 	description = get_description()
@@ -14,9 +14,9 @@ func _init() -> void:
 
 ## Returns upgrade description and cost
 func get_description() -> String:
-	var desc : String = "Are you paying attention?."
-	desc += "\nEffects: Unlocks Reaction mini-game"
-	desc += "\nCost in STR: %s" %cost
+	var desc : String = "Будь вниметельнее!"
+	desc += "\nЭффект: Открывает мини-игру Реакция"
+	desc += "\nСтоимость в ЗВД: %s" %cost
 	
 	return desc
 

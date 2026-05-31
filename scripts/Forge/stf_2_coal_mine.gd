@@ -7,7 +7,7 @@ var max_times_forged : int = 5
 
 func _init() -> void:
 	times_forged = Game.ref.data.stf.stf_2_times_forged
-	title = "Coal Mine"
+	title = "Угольная Шахта"
 	base_cost = 5
 	calculate_cost()
 	description = get_description()
@@ -15,9 +15,9 @@ func _init() -> void:
 
 ## Returns upgrade description and cost
 func get_description() -> String:
-	var desc : String = "Improves coal based generation"
-	desc += "\nEffects: *2 energy/s from coal"
-	desc += "\nCost in STR: %s" %cost
+	var desc : String = "Наверное полездна для поддержания Угольного Генератора"
+	desc += "\nЭффект: Удваивает Энергию/с от Угольного Генератора"
+	desc += "\nСтоимость в ЗВД: %s" %cost
 	
 	return desc
 
@@ -41,7 +41,7 @@ func buy_one() -> void:
 	if not HandlerSTR.ref.consume_st_r(cost):
 		times_forged += 1
 		Game.ref.data.stf.stf_2_times_forged = times_forged
-		print("ba")
-		
+		calculate_cost()
+		description = get_description()
 		bought.emit()
 		HandlerSTForge.ref.get_forged.emit()

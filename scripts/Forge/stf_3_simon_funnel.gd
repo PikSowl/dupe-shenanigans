@@ -6,7 +6,7 @@ extends Upgrade
 func _init() -> void:
 	is_forged = Game.ref.data.stf.stf_3_forged
 	times_forged = 0
-	title = "Simon Funnel"
+	title = "Воронка Саймона"
 	base_cost = 1
 	calculate_cost()
 	description = get_description()
@@ -14,9 +14,9 @@ func _init() -> void:
 
 ## Returns upgrade description and cost
 func get_description() -> String:
-	var desc : String = "Simom would like that!."
-	desc += "\nEffects: Unlocks Simom mini-game"
-	desc += "\nCost in STR: %s" %cost
+	var desc : String = "Саймон был бы рад этому!"
+	desc += "\nЭффект: Открывает мини-игру Саймон"
+	desc += "\nСтоимость в ЗВД: %s" %cost
 	
 	return desc
 

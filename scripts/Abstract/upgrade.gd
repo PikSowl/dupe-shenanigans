@@ -7,14 +7,12 @@ extends Node
 signal bought
 
 
-## How many already bought
-var amount : int = -1
 ## Is it forged
 var is_forged : bool = false
 ## How many times was it forged
-var times_forged : int = -1
+var times_forged : int = 0
 ## Name of upgrade
-var title : String = "Click Upgrade"
+var title : String = ""
 ## What it does
 var description : String
 ## How much for first one
