@@ -24,7 +24,7 @@ func get_description() -> String:
 
 ## Returns how much for this one
 func calculate_cost() -> void:
-	cost = base_cost + int(pow(base_cost, times_forged))
+	cost = base_cost + int(pow(base_cost, 1+times_forged/10))
 
 
 func is_afordable() -> bool:

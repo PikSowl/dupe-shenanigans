@@ -21,6 +21,7 @@ signal reaction_open()
 
 
 func _ready() -> void:
+	await(get_tree().create_timer(0.1).timeout)
 	if Game.ref.data.stf.stf_3_forged:
 		simon_open.emit()
 		return

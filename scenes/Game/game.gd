@@ -21,16 +21,15 @@ func _singleton_check() -> void:
 var data : Data
 
 ## Singleton check and data initalisation
+
 func _enter_tree() -> void:
 	_singleton_check()
 	data = Data.new()
 	SaveSystem.load_data()
 
+func _on_save_timer_timeout() -> void:
+	SaveSystem.save_data()
 
 func _ready() -> void:
 	var node_ui : UI = scene_ui.instantiate() as UI
 	add_child(node_ui)
-
-
-func _on_save_timer_timeout() -> void:
-	SaveSystem.save_data()

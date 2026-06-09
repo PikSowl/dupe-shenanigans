@@ -4,7 +4,7 @@ class_name SaveSystem
 ## Path to the save file
 const PATH : String = "user://save.tres"
 ## Do we want to load the game
-const SHOULD_LOAD : bool = false
+const SHOULD_LOAD : bool = true
 
 
 # Saves Game.ref.data to file

@@ -7,7 +7,7 @@ func _init() -> void:
 	is_forged = Game.ref.data.stf.stf_5_forged
 	times_forged = int(Game.ref.data.stf.stf_5_forged)
 	title = "Воронка Реакция"
-	base_cost = 12
+	base_cost = 8
 	calculate_cost()
 	description = get_description()
 

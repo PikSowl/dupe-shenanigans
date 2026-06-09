@@ -12,7 +12,7 @@ extends Control
 var upgrade : Upgrade
 
 
-func  _ready() -> void:
+func _ready() -> void:
 	if not upgrade:
 		upgrade = UpClick1.new()
 	

@@ -6,8 +6,8 @@ extends Node
 ## Singleton reference
 static var ref : HandlerEnergy
 
-var c : int = 1000
-
+var n : int = 0
+var energy_for_next_str : int = 1000 * int(pow(10, n))
 
 ## Singleton check
 func _enter_tree() -> void:
@@ -16,6 +16,7 @@ func _enter_tree() -> void:
 		return
 	
 	queue_free()
+	n = Game.ref.data.str_from_energy_gained
 
 
 signal energy_created()
@@ -27,18 +28,23 @@ signal energy_consumed()
 func energy() -> int:
 	return Game.ref.data.energy
 
-## When click produce energy
+## Производство энергия за нажатия
 func click_energy() -> void:
 	var quantity_added: int = 1
 	quantity_added += Game.ref.data.up_c_1_amount
 	
 	create_energy(quantity_added)
 
-## Add some quantity of energy to stored
+## Добавляет quantity энергии к числу хранимой
 func create_energy(quantity : int) -> void:
 	Game.ref.data.energy += quantity
 	energy_created.emit()
 	
+	if Game.ref.data.energy >= energy_for_next_str:
+		HandlerSTR.ref.create_st_r(1)
+		n += 1
+		Game.ref.data.str_from_energy_gained = n
+		energy_for_next_str = 1000 * int(pow(10, n))
 
 
 ## Try to consume some quantity of energy from stored

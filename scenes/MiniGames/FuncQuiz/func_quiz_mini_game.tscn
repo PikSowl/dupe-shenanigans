@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjn4u70km5owr" path="res://scenes/MiniGames/FuncQuiz/func_quiz_mini_game.gd" id="1_8ry6d"]
 [ext_resource type="LabelSettings" uid="uid://ck54py6kema38" path="res://assets/base_label_settings.tres" id="2_imijx"]
 [ext_resource type="Script" uid="uid://bs63n4wihpno0" path="res://scenes/MiniGames/FuncQuiz/graph_area.gd" id="3_7lqws"]
-[ext_resource type="Texture2D" uid="uid://ckmalc36a22ir" path="res://assets/Simon/Buttons/ButtonRestart.png" id="4_imijx"]
+[ext_resource type="Texture2D" uid="uid://ckmalc36a22ir" path="res://assets/ButtonRestart.png" id="4_imijx"]
 
 [node name="FuncQuizMiniGame" type="Control" unique_id=1141901097 node_paths=PackedStringArray("question_label", "graph_area", "score_label", "hi_score_label", "restart_button")]
 layout_mode = 3
@@ -43,6 +43,7 @@ theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin" unique_id=1051817361]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="Question" type="Label" parent="Margin/VBoxContainer" unique_id=1961082560]
 layout_mode = 2
@@ -60,7 +61,7 @@ metadata/_custom_type_script = "uid://bs63n4wihpno0"
 
 [node name="Score" type="Label" parent="Margin/VBoxContainer" unique_id=1609051937]
 layout_mode = 2
-text = "Score"
+text = "Cчет: 0"
 label_settings = ExtResource("2_imijx")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -70,20 +71,24 @@ layout_mode = 2
 alignment = 1
 
 [node name="Button1" type="Button" parent="Margin/VBoxContainer/HBoxContainer" unique_id=4527980]
-custom_minimum_size = Vector2(240, 160)
+custom_minimum_size = Vector2(320, 160)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 
 [node name="Button2" type="Button" parent="Margin/VBoxContainer/HBoxContainer" unique_id=257216265]
-custom_minimum_size = Vector2(240, 160)
+custom_minimum_size = Vector2(320, 160)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 
 [node name="Button3" type="Button" parent="Margin/VBoxContainer/HBoxContainer" unique_id=1801104546]
-custom_minimum_size = Vector2(240, 160)
+custom_minimum_size = Vector2(320, 160)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 
 [node name="Button4" type="Button" parent="Margin/VBoxContainer/HBoxContainer" unique_id=1752585412]
-custom_minimum_size = Vector2(240, 160)
+custom_minimum_size = Vector2(320, 160)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 
 [node name="Restart" type="TextureButton" parent="Margin/VBoxContainer" unique_id=219846982]
 layout_mode = 2
@@ -93,16 +98,21 @@ texture_normal = ExtResource("4_imijx")
 
 [node name="Hi-score_margin" type="MarginContainer" parent="." unique_id=516971830]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.9984375
+anchor_top = 0.1587963
+anchor_right = 0.9984375
+anchor_bottom = 0.1587963
 offset_left = -405.0
-offset_bottom = 99.0
+offset_top = -49.5
+offset_bottom = 49.5
 grow_horizontal = 0
+grow_vertical = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
+metadata/_edit_use_anchors_ = true
 
 [node name="Hi-score" type="Label" parent="Hi-score_margin" unique_id=1030143856]
 layout_mode = 2

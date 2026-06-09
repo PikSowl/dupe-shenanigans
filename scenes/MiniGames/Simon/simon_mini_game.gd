@@ -43,7 +43,7 @@ func _ready() -> void:
 	_connect_button_signals()
 	current_state = State.GAME_OVER
 	disable_buttons()
-	message_label.text = "Готов?"
+	message_label.text = "Готов? Жми Рестарт"
 
 
 func _connect_button_signals() -> void:
@@ -61,7 +61,7 @@ func start_new_game() -> void:
 	add_to_sequence()
 
 
-## Adds new random button to sequence
+## Добавляет новую кнопку в последовательность
 func add_to_sequence() -> void:
 	var random_button : SimonButton = buttons[randi() % buttons.size()]
 	sequence.append(random_button)

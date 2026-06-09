@@ -28,6 +28,7 @@ script = ExtResource("6_t5wam")
 timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Handlers/CoalPlant" unique_id=654774087]
+wait_time = 2.0
 
 [node name="MiniFunnel" type="Node" parent="Handlers" unique_id=1014999218]
 script = ExtResource("6_54y65")

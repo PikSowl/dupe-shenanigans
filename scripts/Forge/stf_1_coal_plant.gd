@@ -7,12 +7,12 @@ func _init() -> void:
 	is_forged = Game.ref.data.stf.stf_1_forged
 	times_forged = 0
 	title = "Угольный генератор"
-	base_cost = 3
+	base_cost = 2
 	calculate_cost()
 	description = get_description()
 
 
-## Returns upgrade description and cost
+## Возращает описание улучшения и его стоимость
 func get_description() -> String:
 	var desc : String = "Твой первый источник пасивной энергии."
 	desc += "\nЭффект: +1 энергия/с"
