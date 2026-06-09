@@ -21,21 +21,19 @@ signal reaction_open()
 
 
 func _ready() -> void:
+	await(get_tree().create_timer(0.1).timeout)
 	if Game.ref.data.stf.stf_3_forged:
 		simon_open.emit()
-		return
 	else:
 		HandlerSTForge.ref.stf_3_simon_funnel.bought.connect(watch_for_stf_3_get_forged)
 	
 	if Game.ref.data.stf.stf_4_forged:
 		func_quiz_open.emit()
-		return
 	else:
 		HandlerSTForge.ref.stf_4_func_quiz_funnel.bought.connect(watch_for_stf_4_get_forged)
 	
 	if Game.ref.data.stf.stf_5_forged:
 		reaction_open.emit()
-		return
 	else:
 		HandlerSTForge.ref.stf_5_reaction_funnel.bought.connect(watch_for_stf_5_get_forged)
 

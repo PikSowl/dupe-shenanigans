@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://byvcks0bmw0yy" path="res://assets/Simon/Buttons/ButtonBlue.png" id="8_ry5u5"]
 [ext_resource type="Texture2D" uid="uid://cxbch5s4eg7r0" path="res://assets/Simon/Buttons/ButtonOffRed.png" id="9_cg3ko"]
 [ext_resource type="Texture2D" uid="uid://cjdv02va1ub4g" path="res://assets/Simon/Buttons/ButtonRed.png" id="10_apj8v"]
-[ext_resource type="Texture2D" uid="uid://ckmalc36a22ir" path="res://assets/Simon/Buttons/ButtonRestart.png" id="12_um74y"]
+[ext_resource type="Texture2D" uid="uid://ckmalc36a22ir" path="res://assets/ButtonRestart.png" id="12_um74y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0fjp"]
 font_size = 64

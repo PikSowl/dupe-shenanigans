@@ -21,16 +21,16 @@ var base_cost : int = -1
 var cost : int = -1
 
 
-## Virtual class, must be overwritten.[br]
+## Вирутальный класс, должен быть переопределен.[br]
 ## Returns upgrade description and cost
 func get_description() -> String:
-	return "Description missing."
+	return "Описание отсутствует."
 
 
 ## Virtual class, must be overwritten.[br]
 ## Returns how much for one
 func calculate_cost() -> void:
-	printerr("calculate_cost() method not defined")
+	printerr("calculate_cost() не определен")
 
 
 ## Virtual class, must be overwritten.[br]
@@ -39,4 +39,4 @@ func is_afordable() -> bool:
 
 ## Virtual class, must be overwritten.[br]
 func buy_one() -> void:
-	printerr("buy_one() method not defined")
+	printerr("buy_one() не определен")

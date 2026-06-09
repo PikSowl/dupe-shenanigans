@@ -30,11 +30,10 @@ func is_afordable() -> bool:
 
 ## Возращает стоимость одного улучшения
 func calculate_cost() -> void:
-	cost = base_cost + 2 * base_cost * int(times_forged**1.5)
+	cost = base_cost + 2 * base_cost * int(times_forged**1.3)
 	description = get_description()
 
-
-## Пробует купить одно улучшение
+## Покупает одно улучшение
 func buy_one() -> void:
 	if not HandlerEnergy.ref.consume_energy(cost):
 		times_forged += 1
