@@ -12,7 +12,7 @@ var mod_functions: Dictionary = {
 	"sqrt(x)": func(x: float) -> float: return sqrt(maxf(x, 0.0)),
 	"cbrt(x)": func(x: float) -> float: return pow(x, 1.0/3.0),
 	"e^x": func(x: float) -> float: return exp(x),
-	"ln(x)+1": func(x: float) -> float: return log(maxf(x, 0.001)) + 1.0,
+	"ln(x)": func(x: float) -> float: return log(maxf(x, 0.001)),
 	"log2(x)": func(x: float) -> float: return log(maxf(x, 0.001)) / log(2.0),
 	"log10(x)": func(x: float) -> float: return log(maxf(x, 0.001)) / log(10.0),
 	"|x|": func(x: float) -> float: return abs(x),

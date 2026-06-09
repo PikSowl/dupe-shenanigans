@@ -38,6 +38,7 @@ func _ready() -> void:
 	super()
 	visible = false
 	timer_label.text = "Нажми Рестарт!"
+	hi_score_label.text = "Лучший счет: %s" % hi_score
 
 
 func start_game() -> void:

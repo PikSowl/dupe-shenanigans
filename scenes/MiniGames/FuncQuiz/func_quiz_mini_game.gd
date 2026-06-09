@@ -32,6 +32,7 @@ func _ready() -> void:
 	visible = false
 	for btn: Button in buttons:
 		btn.pressed.connect(_on_button_pressed.bind(btn))
+	hi_score_label.text = "Лучший счет: %s" % hi_score
 	start_new_round()
 
 

@@ -43,6 +43,7 @@ func _ready() -> void:
 	_connect_button_signals()
 	current_state = State.GAME_OVER
 	disable_buttons()
+	hi_score_label.text = "Лучший счет: %s" % hi_score
 	message_label.text = "Готов? Жми Рестарт"
 
 
